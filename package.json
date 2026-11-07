@@ -1,0 +1,14 @@
+{
+  "name": "free-sleep-sounds-directory",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Directory of free, no-signup sleep and focus audio sources, with a toggleable ADHD focus edition. Static site + Node tests.",
+  "license": "MIT",
+  "scripts": {
+    "test": "node --test",
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

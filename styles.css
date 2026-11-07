@@ -1,0 +1,273 @@
+/* Free Sleep Sounds Directory — one stylesheet, no framework. */
+
+:root {
+  --bg: #101418;
+  --bg-card: #171d23;
+  --bg-accent: #1c2530;
+  --text: #e8edf2;
+  --muted: #9db0c0;
+  --line: #2a3542;
+  --accent: #7fb4d8;
+  --accent-2: #f2c98a;
+  --focus: #a8e6a1;
+  --radius: 12px;
+  font-size: 16px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.55;
+}
+
+a {
+  color: var(--accent);
+}
+
+.wrap {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1.25rem 3rem;
+}
+
+header.site {
+  padding: 2rem 0 0.75rem;
+}
+
+header.site h1 {
+  margin: 0;
+  font-size: 1.7rem;
+  letter-spacing: 0.2px;
+}
+
+header.site p.tag {
+  margin: 0.4rem 0 0;
+  color: var(--muted);
+}
+
+/* ------------------------------- controls ------------------------------- */
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1.25rem 0 0.75rem;
+}
+
+button {
+  font: inherit;
+  border: 1px solid var(--line);
+  background: var(--bg-card);
+  color: var(--text);
+  border-radius: 999px;
+  padding: 0.45rem 0.95rem;
+  cursor: pointer;
+}
+
+button:hover {
+  background: var(--bg-accent);
+}
+
+button.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #0d1216;
+  font-weight: 600;
+}
+
+#focus-toggle.active {
+  background: var(--focus);
+  border-color: var(--focus);
+}
+
+#count {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin: 0.25rem 0 1rem;
+}
+
+/* -------------------------------- focus panel -------------------------------- */
+
+#focus-panel {
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--focus);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+  margin: 0.5rem 0 1.5rem;
+}
+
+#focus-panel h2 {
+  margin: 0 0 0.4rem;
+  font-size: 1.05rem;
+  color: var(--focus);
+}
+
+#focus-panel ul {
+  margin: 0 0 0.5rem;
+  padding-left: 1.2rem;
+}
+
+#focus-close {
+  border-radius: 6px;
+  padding: 0.25rem 0.6rem;
+  font-size: 0.85rem;
+}
+
+/* -------------------------------- cards -------------------------------- */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 0.9rem;
+}
+
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.card-focus {
+  border-color: var(--focus);
+}
+
+.card h3 {
+  margin: 0;
+  font-size: 1.02rem;
+}
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.badge {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  color: var(--muted);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.12rem 0.55rem;
+}
+
+.badge-focus {
+  color: #173b17;
+  background: var(--focus);
+  border-color: var(--focus);
+  font-weight: 700;
+}
+
+.badge-local {
+  color: var(--accent-2);
+  border-color: var(--accent-2);
+}
+
+.notes {
+  margin: 0;
+  color: var(--text);
+  font-size: 0.92rem;
+}
+
+.tags {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.card-actions {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.confirm {
+  color: var(--muted);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+/* -------------------------------- timer -------------------------------- */
+
+#timer {
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.1rem 1.25rem;
+  margin: 2rem 0 1rem;
+  scroll-margin-top: 1rem;
+}
+
+#timer h2 {
+  margin: 0 0 0.35rem;
+  font-size: 1.2rem;
+}
+
+#timer p.sub {
+  margin: 0 0 0.9rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.timer-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.timer-row label {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.timer-row input[type="number"] {
+  width: 5.5rem;
+  font: inherit;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.4rem 0.6rem;
+}
+
+.timer-row input[type="range"] {
+  width: 10rem;
+}
+
+#timer-status {
+  margin: 0.8rem 0 0;
+  color: var(--accent-2);
+  font-size: 0.95rem;
+  min-height: 1.4em;
+}
+
+/* -------------------------------- footer -------------------------------- */
+
+footer.site {
+  margin-top: 2.5rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+  border-top: 1px solid var(--line);
+  padding-top: 1rem;
+}
+
+footer.site a {
+  color: var(--accent);
+}

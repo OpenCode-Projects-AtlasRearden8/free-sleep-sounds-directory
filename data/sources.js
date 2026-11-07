@@ -1,0 +1,256 @@
+// Free Sleep Sounds Directory — curated source data
+// Rules for every entry:
+//   * free to use, no account / signup / email required
+//   * no "ad trick" or shady-workaround recommendations
+//   * URLs point at stable homepages, known search pages, or very
+//     well-known permanent videos (never guessed video IDs)
+//
+// This file is plain browser JS but written so Node tests can load it too.
+
+const SOURCES = [
+  {
+    id: "mynoise",
+    name: "myNoise",
+    type: "site",
+    url: "https://mynoise.net/",
+    categories: ["brown-noise", "rain", "fan", "focus", "asmr-safe"],
+    focusPick: true,
+    asmrSafe: true,
+    signupRequired: false,
+    adTricks: false,
+    length: null,
+    notes:
+      "Dozens of audio generators (Rain Noise, Brown Noise, Fan, Drones) you can tune by frequency slider. Donation-based, no account needed to listen. Works in the browser, calm layout with no pop-ups.",
+  },
+  {
+    id: "rainymood",
+    name: "Rainy Mood",
+    type: "site",
+    url: "https://www.rainymood.com/",
+    categories: ["rain"],
+    focusPick: false,
+    asmrSafe: true,
+    signupRequired: false,
+    adTricks: false,
+    length: null,
+    notes:
+      "One high-quality rain loop, nothing else. Opens and plays immediately — the simplest pick on this list. The paid version exists but the free loop is fully functional.",
+  },
+  {
+    id: "simplynoise",
+    name: "SimplyNoise",
+    type: "site",
+    url: "https://simplynoise.com/",
+    categories: ["brown-noise", "focus"],
+    focusPick: true,
+    asmrSafe: true,
+    signupRequired: false,
+    adTricks: false,
+    length: null,
+    notes:
+      "Classic white / pink / brown noise switcher with an oscillation option and a built-in sleep timer. No account required.",
+  },
+  {
+    id: "yt-search-brown",
+    name: "YouTube search: brown noise 10 hours",
+    type: "howto",
+    url: "https://www.youtube.com/results?search_query=brown+noise+10+hours",
+    categories: ["brown-noise", "youtube-tricks", "focus"],
+    focusPick: true,
+    asmrSafe: true,
+    signupRequired: false,
+    adTricks: false,
+    length: "10 h",
+    notes:
+      "Search page, not a specific video: you pick the upload you like. Tip — after searching, click the Filters button and choose 'Long (> 20 min)' so you only see the all-night-length uploads.",
+  },
+  {
+    id: "yt-search-rain",
+    name: "YouTube search: rain sounds for sleeping 10 hours",
+    type: "howto",
+    url: "https://www.youtube.com/results?search_query=rain+sounds+for+sleeping+10+hours",
+    categories: ["rain", "youtube-tricks"],
+    focusPick: false,
+    asmrSafe: true,
+    signupRequired: false,
+    adTricks: false,
+    length: "10 h",
+    notes:
+      "Huge library of rain recordings (heavy rain, tin roof, thunder rolls). Apply the 'Long (> 20 min)' filter to find the multi-hour versions, then use the loop trick below so hourly uploads are never needed.",
+  },
+  {
+    id: "yt-search-fan",
+    name: "YouTube search: box fan white noise 10 hours",
+    type: "howto",
+    url: "https://www.youtube.com/results?search_query=box+fan+white+noise+10+hours",
+    categories: ["fan", "youtube-tricks"],
+    focusPick: false,
+    asmrSafe: true,
+    signupRequired: false,
+    adTricks: false,
+    length: "10 h",
+    notes:
+      "Real recorded box-fan loops — the bedroom classic. Long uploads plus the one-click loop trick means the sound never stops mid-night.",
+  },
+  {
+    id: "yt-search-asmr",
+    name: "YouTube search: ASMR rain no talking",
+    type: "howto",
+    url: "https://www.youtube.com/results?search_query=asmr+rain+no+talking",
+    categories: ["asmr-safe", "youtube-tricks"],
+    focusPick: false,
+    asmrSafe: true,
+    signupRequired: false,
+    adTricks: false,
+    length: null,
+    notes:
+      "Adding 'no talking' to the search keeps results ASMR-safe for sleep: sounds only, no whispered voice to jolt you awake. Pick videos labeled 'no talking' in the title.",
+  },
+  {
+    id: "lofi-girl",
+    name: "Lofi Girl — lofi hip hop radio (24/7 stream)",
+    type: "video",
+    url: "https://www.youtube.com/watch?v=jfKfPfyJRdk",
+    categories: ["streamers", "focus"],
+    focusPick: true,
+    asmrSafe: false,
+    signupRequired: false,
+    adTricks: false,
+    length: "24/7",
+    notes:
+      "The famous always-on study stream: beats to relax/study to, live around the clock — a genuine permanent stream, not a 10-hour video that ends. Free, no account needed to watch. It has music with vocals/lyrics sometimes, so it is a focus pick, not a sleep pick.",
+  },
+  {
+    id: "web-brown-noise",
+    name: "This site's built-in brown noise generator",
+    type: "local",
+    url: null,
+    categories: ["brown-noise", "focus"],
+    focusPick: true,
+    asmrSafe: true,
+    signupRequired: false,
+    adTricks: false,
+    length: "custom timer",
+    notes:
+      "Use the Sleep Timer panel above: pure brown noise generated by your own browser — no stream, no buffering, works offline. Set the fade-out timer for 15–60 minutes and it stops by itself, so audio never runs all night.",
+  },
+  {
+    id: "trick-loop",
+    name: "YouTube trick: one-click loop",
+    type: "trick",
+    url: "https://www.youtube.com/watch?v=jfKfPfyJRdk",
+    categories: ["youtube-tricks"],
+    focusPick: false,
+    asmrSafe: true,
+    signupRequired: false,
+    adTricks: false,
+    length: null,
+    notes:
+      "Right-click (or long-press) the video player and choose 'Loop'. A 30-minute rain video now repeats all night with zero extra apps, zero uploads of fake 'extensions', and nothing to install. Pair with your device's sleep timer below.",
+  },
+  {
+    id: "trick-filter",
+    name: "YouTube trick: 'Long (> 20 min)' filter",
+    type: "trick",
+    url: "https://www.youtube.com/results?search_query=rain+sounds",
+    categories: ["youtube-tricks"],
+    focusPick: false,
+    asmrSafe: true,
+    signupRequired: false,
+    adTricks: false,
+    length: null,
+    notes:
+      "Search, click Filters, choose 'Long (> 20 min)'. This is the honest length trick — real long uploads, no sketchy '1 hour' re-uploads, and no need for Premium or any extension.",
+  },
+  {
+    id: "trick-sleeptimer",
+    name: "YouTube mobile app: built-in Sleep Timer",
+    type: "trick",
+    url: "https://support.google.com/youtube/answer/14492214",
+    categories: ["youtube-tricks", "timers"],
+    focusPick: false,
+    asmrSafe: true,
+    signupRequired: false,
+    adTricks: false,
+    length: null,
+    notes:
+      "In the YouTube mobile app, tap the gear icon on a playing video, then 'Sleep timer'. Choose 10 min – end of video; playback pauses itself so it never plays till dawn. Free, first-party, no tricks.",
+  },
+  {
+    id: "timer-ios",
+    name: "iPhone / iPad: Clock timer → 'Stop Playing'",
+    type: "os",
+    url: null,
+    categories: ["timers"],
+    focusPick: false,
+    asmrSafe: true,
+    signupRequired: false,
+    adTricks: false,
+    length: null,
+    notes:
+      "Free, already on your device: Clock app → Timers → set minutes → tap 'When Timer Ends' → scroll to the bottom → 'Stop Playing'. When the timer fires, all media audio stops — YouTube included.",
+  },
+  {
+    id: "timer-android",
+    name: "Android: Clock app media-volume option",
+    type: "os",
+    url: null,
+    categories: ["timers"],
+    focusPick: false,
+    asmrSafe: true,
+    signupRequired: false,
+    adTricks: false,
+    length: null,
+    notes:
+      "Built into many Android phones: Clock → Timer → expand the timer → 'Timer sound: fade out media volume' (wording varies by phone). The media volume is faded to silent so your brown noise or rain quietly stops. If your stock Clock app lacks it, a free 'Goodnight Timer'-style app from Play Store does the same fade.",
+  },
+  {
+    id: "timer-windows",
+    name: "Windows: shutdown command timer",
+    type: "os",
+    url: null,
+    categories: ["timers"],
+    focusPick: false,
+    asmrSafe: true,
+    signupRequired: false,
+    adTricks: false,
+    length: null,
+    notes:
+      "No installs, totally free: press Win+R, type `shutdown -t 2700 -s` (2700 s = 45 min; cancel anytime with `shutdown -a`). Sleep-mode fallback: use the Alarms & Clock app's timer to remind you to pause playback.",
+  },
+  {
+    id: "timer-macos-linux",
+    name: "Mac / Linux: shutdown command timer",
+    type: "os",
+    url: null,
+    categories: ["timers"],
+    focusPick: false,
+    asmrSafe: true,
+    signupRequired: false,
+    adTricks: false,
+    length: null,
+    notes:
+      "Mac: `sudo shutdown -h +45` (45 minutes; cancel with `sudo killall shutdown`). Linux: `shutdown -h +45` or `sudo shutdown -c` to cancel. Or simply `sleep 45m && pkill -f 'mynoise\\|firefox'`-style one-liners — stop audio without shutting the machine down.",
+  },
+];
+
+const CATEGORIES = [
+  { id: "brown-noise", label: "Brown noise" },
+  { id: "rain", label: "Rain" },
+  { id: "fan", label: "Fan loops" },
+  { id: "asmr-safe", label: "ASMR-safe" },
+  { id: "streamers", label: "Workaround-free streamers" },
+  { id: "youtube-tricks", label: "YouTube length tricks" },
+  { id: "timers", label: "Sleep timers (auto-stop)" },
+  { id: "focus", label: "ADHD focus edition" },
+];
+
+// Expose for the browser (app.js reads window.SOURCES) and for Node-based tests.
+if (typeof window !== "undefined") {
+  window.SOURCES = SOURCES;
+  window.CATEGORIES = CATEGORIES;
+}
+
+if (typeof module !== "undefined" && module.exports) {
+  module.exports = { SOURCES, CATEGORIES };
+}

@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Free Sleep Sounds Directory — no signup, no tricks</title>
+  <meta
+    name="description"
+    content="A directory of free, no-signup sleep and focus audio: brown noise, rain, fan loops, ASMR-safe picks, workaround-free streamers, YouTube length tricks, and sleep timers that auto-stop. Includes a toggleable ADHD focus edition."
+  />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="data:," />
+</head>
+<body>
+  <div class="wrap">
+    <header class="site">
+      <h1>Free Sleep Sounds Directory</h1>
+      <p class="tag">
+        Free, <strong>no-signup</strong> sleep and focus audio. No ads-tricks, no paid tiers
+        pretending to be free. Every pick stops on a timer so audio never runs all night.
+      </p>
+    </header>
+
+    <div class="controls" role="group" aria-label="filters">
+      <button class="cat-btn active" data-cat="all">All</button>
+      <button class="cat-btn" data-cat="brown-noise">Brown noise</button>
+      <button class="cat-btn" data-cat="rain">Rain</button>
+      <button class="cat-btn" data-cat="fan">Fan loops</button>
+      <button class="cat-btn" data-cat="asmr-safe">ASMR-safe</button>
+      <button class="cat-btn" data-cat="streamers">Streamers</button>
+      <button class="cat-btn" data-cat="youtube-tricks">YouTube tricks</button>
+      <button class="cat-btn" data-cat="timers">Sleep timers</button>
+      <button id="focus-toggle" aria-pressed="false">ADHD focus edition</button>
+    </div>
+    <p id="count"></p>
+
+    <section id="focus-panel" class="card" hidden>
+      <h2>ADHD focus edition</h2>
+      <p>
+        These picks work for focus sessions, not just sleep. Pair one with the
+        <a href="#timer">sleep timer below at 25 minutes</a> — a Pomodoro. When the timer
+        hits zero, the sound fades out on its own, and that fade is your cue to take a break.
+      </p>
+      <ul id="focus-list"></ul>
+      <button id="focus-close" type="button">Close</button>
+    </section>
+
+    <main id="grid" class="grid" aria-live="polite"></main>
+
+    <section id="timer">
+      <h2>Built-in brown noise + auto-stop sleep timer</h2>
+      <p class="sub">
+        Runs entirely in this tab with Web Audio &mdash; no stream, no buffering, works offline.
+        Set the minutes and the sound fades itself out and stops.
+      </p>
+      <div class="timer-row">
+        <label for="minutes">Minutes (1&ndash;480):</label>
+        <input id="minutes" type="number" min="1" max="480" value="45" inputmode="numeric" />
+        <button id="play" type="button">Play</button>
+        <button id="stop" type="button">Stop</button>
+        <label for="volume">Volume</label>
+        <input id="volume" type="range" min="0" max="1" step="0.05" value="0.5" />
+      </div>
+      <p id="timer-status">Stopped.</p>
+    </section>
+
+    <footer class="site">
+      <p>
+        Curated by <strong>Asdale Dynamics, LLC</strong>. Education only &mdash; not medical
+        advice; talk to your clinician about sleep problems. All picks verified free with no
+        account required at the time of writing.
+      </p>
+      <p>MIT licensed &mdash; see <a href="LICENSE">LICENSE</a> and <a href="README.md">README.md</a>.</p>
+    </footer>
+  </div>
+
+  <script src="data/sources.js"></script>
+  <script src="audio-engine.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
